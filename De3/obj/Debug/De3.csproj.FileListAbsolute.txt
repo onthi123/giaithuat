@@ -1,0 +1,12 @@
+D:\code2024\C#\onthicuoi\De3\bin\Debug\De3.exe
+D:\code2024\C#\onthicuoi\De3\bin\Debug\De3.pdb
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.csproj.AssemblyReference.cache
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.Cau2.resources
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.Form1.resources
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.Properties.Resources.resources
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.csproj.GenerateResource.cache
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.csproj.CoreCompileInputs.cache
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.exe
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.pdb
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.Cau3.resources
+D:\code2024\C#\onthicuoi\De3\obj\Debug\De3.fromthem.resources
