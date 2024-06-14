@@ -1,0 +1,15 @@
+D:\laptrinhnet\onthi5\onthi5\bin\Debug\onthi5.exe.config
+D:\laptrinhnet\onthi5\onthi5\bin\Debug\onthi5.exe
+D:\laptrinhnet\onthi5\onthi5\bin\Debug\onthi5.pdb
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.csproj.AssemblyReference.cache
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau1.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Properties.Resources.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.csproj.GenerateResource.cache
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.csproj.CoreCompileInputs.cache
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.exe
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.pdb
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau2.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau3.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau4.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau5.resources
+D:\laptrinhnet\onthi5\onthi5\obj\Debug\onthi5.Cau6.resources

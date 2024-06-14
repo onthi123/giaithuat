@@ -1,0 +1,50 @@
+using System;
+
+namespace GiaiPhuongTrinhBac2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Giải phương trình bậc 2 ax^2 + bx + c = 0");
+            
+            // Nhập các hệ số từ người dùng
+            Console.Write("Nhập hệ số a: ");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.Write("Nhập hệ số b: ");
+            double b = double.Parse(Console.ReadLine());
+
+            Console.Write("Nhập hệ số c: ");
+            double c = double.Parse(Console.ReadLine());
+
+            // Gọi hàm giải phương trình bậc 2 và in kết quả ra màn hình
+            GiaiPhuongTrinhBac2(a, b, c);
+
+            Console.ReadLine(); // Dừng màn hình console để người dùng có thể đọc kết quả
+        }
+
+        static void GiaiPhuongTrinhBac2(double a, double b, double c)
+        {
+            double delta = b * b - 4 * a * c;
+
+            if (delta < 0)
+            {
+                Console.WriteLine("Phương trình vô nghiệm");
+            }
+            else if (delta == 0)
+            {
+                double x = -b / (2 * a);
+                Console.WriteLine($"Phương trình có nghiệm kép x = {x}");
+            }
+            else
+            {
+                double x1 = (-b + Math.Sqrt(delta)) / (2 * a);
+                double x2 = (-b - Math.Sqrt(delta)) / (2 * a);
+                Console.WriteLine($"Phương trình có hai nghiệm phân biệt:");
+                Console.WriteLine($"x1 = {x1}");
+                Console.WriteLine($"x2 = {x2}");
+            }
+        }
+    }
+}
