@@ -1,0 +1,144 @@
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace FootballApp
+{
+    public partial class Form1 : Form
+    {
+        private SqlConnection conn;
+        private SqlDataAdapter adapter;
+        private DataSet dataSet;
+        private int currentIndex;
+
+        public Form1()
+        {
+            InitializeComponent();
+            conn = new SqlConnection(@"YourConnectionStringHere"); // Thay đổi chuỗi kết nối của bạn
+            adapter = new SqlDataAdapter("SELECT * FROM cauthu", conn);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet, "cauthu");
+            currentIndex = 0;
+
+            UpdateDataBindings();
+        }
+
+        private void UpdateDataBindings()
+        {
+            if (dataSet.Tables["cauthu"].Rows.Count > 0)
+            {
+                DataRow row = dataSet.Tables["cauthu"].Rows[currentIndex];
+                txtMa.Text = row["mact"].ToString();
+                txtHoTen.Text = row["hoten"].ToString();
+                dtNgaySinh.Value = (DateTime)row["ngaysinh"];
+                txtQueQuan.Text = row["quequan"].ToString();
+            }
+            else
+            {
+                txtMa.Text = "";
+                txtHoTen.Text = "";
+                dtNgaySinh.Value = DateTime.Now;
+                txtQueQuan.Text = "";
+            }
+
+            btnUpdate.Enabled = false;
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            currentIndex = 0;
+            UpdateDataBindings();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currentIndex > 0)
+            {
+                currentIndex--;
+                UpdateDataBindings();
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currentIndex < dataSet.Tables["cauthu"].Rows.Count - 1)
+            {
+                currentIndex++;
+                UpdateDataBindings();
+            }
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            currentIndex = dataSet.Tables["cauthu"].Rows.Count - 1;
+            UpdateDataBindings();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataRow row = dataSet.Tables["cauthu"].Rows[currentIndex];
+            row["hoten"] = txtHoTen.Text;
+            row["ngaysinh"] = dtNgaySinh.Value;
+            row["quequan"] = txtQueQuan.Text;
+
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            adapter.Update(dataSet, "cauthu");
+
+            MessageBox.Show("Cập nhật thành công!");
+
+            btnUpdate.Enabled = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xoá cầu thủ này?", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataRow row = dataSet.Tables["cauthu"].Rows[currentIndex];
+                row.Delete();
+
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                adapter.Update(dataSet, "cauthu");
+
+                MessageBox.Show("Xoá thành công!");
+
+                currentIndex = 0;
+                UpdateDataBindings();
+            }
+        }
+
+        private void txtHoTen_TextChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+        }
+
+        private void txtQueQuan_TextChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+        }
+
+        private void dtNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.SelectionColor = colorDialog1.Color;
+            }
+        }
+    }
+}
